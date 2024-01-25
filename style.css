@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins&display=swap');
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+/*
+  darker #86DB5C
+  normal #65DB95
+  bright #65DBBE
+
+  --bg-page:      #c0f1a5;
+  --header:       #86db5c;
+  --h-btn:        #56bb27;
+  --h-btn-txt:    #102a09;
+  --txtarea-bg:   #bef4d3;
+  --txtarea-txt:  #175030;
+  --encrypt-btn:  #2abd66;
+  --encrypt-txt:  #072c18;
+  --bg-error-msg: #a2edd8;
+*/
+
+:root {
+  --bg-page:      #c0f1a5;
+  --header:       #86db5c;
+  --h-btn:        #56bb27;
+  --h-btn-txt:    #102a09;
+  --txtarea-bg:   #bef4d3;
+  --txtarea-txt:  #175030;
+  --encrypt-btn:  #2abd66;
+  --encrypt-txt:  #072c18;
+  --bg-error-msg: #a2edd8;
+  background-color: var(--bg-page);
+}
+
+/* Para celulares (pantalla vertical) */
+@media (orientation : portrait) {
+  header {
+    display: flex;
+    justify-content: space-around;
+    border-radius: 0rem 0rem 1rem 1rem;
+    background-color: var(--header);
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+
+  header > a {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--h-btn);
+    color: var(--h-btn-txt);
+    cursor: pointer;
+    font-size: 2rem;
+    font-family: Poppins;
+  }
+  header > a:active {
+    filter: hue-rotate(180deg);
+  }
+
+  main {
+    height: 100dvh;
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+  }
+
+  .encriptation-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .encriptation-article {
+    position: relative;
+    margin: 1rem 1rem 0rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 96%;
+    height: 100%;
+
+    & svg {
+      position: absolute;
+      color: var(--txtarea-txt);
+      width: 3rem;
+      height: 3rem;
+      top: 2rem;
+      right: 3rem;
+      cursor: pointer;
+    }
+    & svg:active {
+      filter:drop-shadow(0px 0px 5px rgba(0, 200, 0, 0.9)) hue-rotate(180deg);
+    }
+  }
+
+  .encriptation-article > textarea {
+    width: 96%;
+    height: 96%;
+    font-size: 3rem;
+    background-color: var(--txtarea-bg);
+    color: var(--txtarea-txt);
+    border-radius: 0.5rem;
+    font-family: Poppins;
+    padding: 1rem;
+    outline: none;
+    border: 3px dotted #999;
+    resize: none;
+  }
+
+  .encriptation-article > button {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    border: 0;
+    background-color: var(--encrypt-btn);
+    color: var(--encrypt-txt);
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
+    transition: all 100ms;
+  }
+
+  .encriptation-article > button:hover {
+    filter: hue-rotate(90deg) drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+  }
+  .encriptation-article > button:active {
+    filter: hue-rotate(180deg);
+  }
+
+  .errors-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1rem;
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    width: 0rem;
+    height: 100%;
+    user-select: none;
+  }
+
+  .errorMessage {
+    opacity: 0;
+    transform: translateX(22rem);
+    width: 20rem;
+    height: 5rem;
+    background-color: var(--bg-error-msg);
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    font-family: monospace !!important;
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
+    animation: appearErrorMessage 1s linear forwards;
+
+    & h2 {
+      color: #a22;
+      font-size: 0.9rem;
+    }
+    & p {
+      color: #255;
+      margin-top: 0.5rem;
+      letter-spacing: 0.1rem;
+    }
+  }
+}
+
+/* Para computadoras (pantalla horizontal) */
+@media (orientation : landscape) {
+
+  header {
+    display: flex;
+    border-radius: 0rem 0rem 1rem 1rem;
+    background-color: var(--header);
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+
+  header > a {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--h-btn);
+    color: var(--h-btn-txt);
+    font-weight: bolder;
+    cursor: pointer;
+    font-family: Poppins;
+  }
+  header > a:hover {
+    filter: hue-rotate(180deg);
+  }
+
+  main {
+    height: 100dvh;
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+  }
+
+  .encriptation-section {
+    display: flex;
+  }
+
+  .encriptation-article {
+    position: relative;
+    margin: 1rem 1rem 0rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 96%;
+    height: 100%;
+
+    & svg {
+      position: absolute;
+      color: var(--txtarea-txt);
+      top: 1rem;
+      right: 2rem;
+      cursor: pointer;
+    }
+    & svg:hover {
+      filter:drop-shadow(0px 0px 5px rgba(0, 0, 255, 0.9)) hue-rotate(90deg);
+    }
+    & svg:active {
+      filter:drop-shadow(0px 0px 5px rgba(0, 200, 0, 0.9)) hue-rotate(180deg);
+    }
+  }
+
+  .encriptation-article > textarea {
+    width: 96%;
+    height: 96%;
+    background-color: var(--txtarea-bg);
+    color: var(--txtarea-txt);
+    border-radius: 0.5rem;
+    font-family: Poppins;
+    padding: 1rem;
+    outline: none;
+    border: 3px dotted #999;
+    resize: none;
+  }
+
+  .encriptation-article > button {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    border: 0;
+    background-color: var(--encrypt-btn);
+    color: var(--encrypt-txt);
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
+    transition: all 100ms;
+  }
+
+  .encriptation-article > button:hover {
+    filter: hue-rotate(90deg) drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+  }
+  .encriptation-article > button:active {
+    filter: hue-rotate(180deg);
+  }
+
+  .errors-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1rem;
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    width: 0rem;
+    height: 100%;
+    user-select: none;
+  }
+
+  .errorMessage {
+    opacity: 0;
+    transform: translateX(22rem);
+    width: 20rem;
+    height: 5rem;
+    background-color: var(--bg-error-msg);
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    font-family: monospace !!important;
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
+    animation: appearErrorMessage 1s linear forwards;
+
+    & h2 {
+      color: #a22;
+      font-size: 0.9rem;
+    }
+    & p {
+      color: #255;
+      margin-top: 0.5rem;
+      letter-spacing: 0.1rem;
+    }
+  }
+}
+
+
+@keyframes appearErrorMessage {
+  from {
+    opacity: 0;
+    transform: translateX(22rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-20rem);
+  }
+}
