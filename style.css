@@ -148,8 +148,8 @@
 
   .errorMessage {
     opacity: 0;
-    transform: translateX(22rem);
-    width: 98dvw;
+    transform: translateX(96dvw);
+    width: 96dvw;
     height: 7rem;
     background-color: var(--bg-error-msg);
     padding: 0.5rem;
@@ -173,11 +173,11 @@
   @keyframes appearErrorMessage {
     from {
       opacity: 0;
-      transform: translateX();
+      transform: translateX(96dvw);
     }
     to {
       opacity: 1;
-      transform: translateX(-98dvw);
+      transform: translateX(-96dvw);
     }
   }
 }
