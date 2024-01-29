@@ -3,23 +3,36 @@ const txtUncrypt = document.getElementById('unencrypted')
 const encryptBtn = document.getElementById('encrypt')
 const unencryptBtn = document.getElementById('unencrypt')
 
+const checkAluraValidations = (text) => {
+  const arrayText = text.split('')
+
+  arrayText.forEach((letter) => {
+    if(!(letter.charCodeAt(0) >= 97 && letter.charCodeAt(0) <= 122 || letter.charCodeAt(0) === 32)) {
+       errorDialog(errorsSection, "Lowercase and no special characters", "According with alura specifications, the text must be on lowercase")
+       throw new Error("Text isn't in lowercase")
+    }
+  })
+}
+
 encryptBtn.addEventListener('click', () => {
   const text = txtUncrypt.value //toma el texto del texto no encriptado
-  let encrypt = text.toLowerCase().split('') //separa el texto en partes
 
-  encrypt.forEach((letter, index) => {
-    if (letter === 'e') encrypt[index] = 'enter'
-    if (letter === 'i') encrypt[index] = 'imes'
-    if (letter === 'a') encrypt[index] = 'ai'
-    if (letter === 'o') encrypt[index] = 'ober'
-    if (letter === 'u') encrypt[index] = 'ufat'
-  }) //encripta
-  txtEncrypt.value = encrypt.join('') //lo une y lo pone dentro del otro textarea
+  checkAluraValidations(text)
+
+  const encryptedText = text.replaceAll('e', 'enter')
+  .replaceAll('i', 'imes')
+  .replaceAll('a', 'ai')
+  .replaceAll('o', 'ober')
+  .replaceAll('u', 'ufat')
+
+  txtEncrypt.value = encryptedText
   txtUncrypt.value = ''
 })
 
 unencryptBtn.addEventListener('click', () => {
   const text = txtEncrypt.value //toma el texto del texto encriptado
+
+  checkAluraValidations(text)
 
   const unencryptedText = text.replaceAll('enter', 'e')
   .replaceAll('imes', 'i')

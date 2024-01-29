@@ -121,12 +121,15 @@
     filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
     transition: all 100ms;
   }
-
-  .encriptation-article > button:hover {
-    filter: hue-rotate(90deg) drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
-  }
   .encriptation-article > button:active {
-    filter: hue-rotate(180deg);
+    filter: hue-rotate(180deg) !important;
+  }
+
+  #encrypt {
+    scale: 1.2;
+    background-color: var(--encrypt-txt);
+    color: var(--encrypt-btn);
+    filter: hue-rotate(-15deg) brightness(2) drop-shadow(1px 1px) drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
   }
 
   .errors-section {
@@ -145,8 +148,8 @@
   .errorMessage {
     opacity: 0;
     transform: translateX(22rem);
-    width: 20rem;
-    height: 5rem;
+    width: 98dvw;
+    height: 7rem;
     background-color: var(--bg-error-msg);
     padding: 0.5rem;
     border-radius: 0.3rem;
@@ -156,12 +159,24 @@
 
     & h2 {
       color: #a22;
-      font-size: 0.9rem;
+      font-size: 2rem;
     }
     & p {
       color: #255;
       margin-top: 0.5rem;
+      font-size: 1.7rem;
       letter-spacing: 0.1rem;
+    }
+  }
+
+  @keyframes appearErrorMessage {
+    from {
+      opacity: 0;
+      transform: translateX();
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-98dvw);
     }
   }
 }
@@ -251,10 +266,17 @@
   }
 
   .encriptation-article > button:hover {
-    filter: hue-rotate(90deg) drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+    filter: hue-rotate(90deg) drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5)) !important;
   }
   .encriptation-article > button:active {
-    filter: hue-rotate(180deg);
+    filter: hue-rotate(180deg) !important;
+  }
+
+  #encrypt {
+    scale: 1.2;
+    background-color: var(--encrypt-txt);
+    color: var(--encrypt-btn);
+    filter: hue-rotate(-15deg) brightness(2) drop-shadow(1px 1px) drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
   }
 
   .errors-section {
@@ -292,16 +314,15 @@
       letter-spacing: 0.1rem;
     }
   }
-}
 
-
-@keyframes appearErrorMessage {
-  from {
-    opacity: 0;
-    transform: translateX(22rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(-20rem);
+  @keyframes appearErrorMessage {
+    from {
+      opacity: 0;
+      transform: translateX(22rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-20rem);
+    }
   }
 }

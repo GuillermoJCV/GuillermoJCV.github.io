@@ -32,5 +32,5 @@ projectsAnchore.addEventListener('click', () => {
 errorsSection.addEventListener('animationend', (e) => {
 	setTimeout(() => {
 		e.target.remove()
-	}, 1500)
+	}, 5000)
 })
