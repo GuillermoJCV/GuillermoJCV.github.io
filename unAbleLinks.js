@@ -22,11 +22,11 @@ function errorDialog(element, summariceMessage, errorMessage) {
 }
 
 homeAnchore.addEventListener('click', () => {
-	errorDialog(errorsSection, "Home isn't able yet", "The link to home page was created just for design purposes")
+	errorDialog(errorsSection, "Home isn't available yet", "The link to home page was created just for design purposes")
 })
 
 projectsAnchore.addEventListener('click', () => {
-	errorDialog(errorsSection, "Projects page isn't able yet", "The link to projects page was created just for design purposes")
+	errorDialog(errorsSection, "Projects page isn't available yet", "The link to projects page was created just for design purposes")
 })
 
 errorsSection.addEventListener('animationend', (e) => {
