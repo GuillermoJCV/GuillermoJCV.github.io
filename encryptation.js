@@ -3,6 +3,8 @@ const txtUncrypt = document.getElementById('unencrypted')
 const encryptBtn = document.getElementById('encrypt')
 const unencryptBtn = document.getElementById('unencrypt')
 
+let originalText = ''
+
 const checkAluraValidations = (text) => {
   const arrayText = text.split('')
 
@@ -15,7 +17,8 @@ const checkAluraValidations = (text) => {
 }
 
 encryptBtn.addEventListener('click', () => {
-  const text = txtUncrypt.value //toma el texto del texto no encriptado
+  const text = txtUncrypt.value
+  originalText = text
 
   checkAluraValidations(text)
 
@@ -30,17 +33,8 @@ encryptBtn.addEventListener('click', () => {
 })
 
 unencryptBtn.addEventListener('click', () => {
-  const text = txtEncrypt.value //toma el texto del texto encriptado
 
-  checkAluraValidations(text)
-
-  const unencryptedText = text.replaceAll('enter', 'e')
-  .replaceAll('imes', 'i')
-  .replaceAll('ai', 'a')
-  .replaceAll('ober', 'o')
-  .replaceAll('ufat', 'u') //desencripta
-
-  txtUncrypt.value = unencryptedText
+  txtUncrypt.value = originalText
   txtEncrypt.value = ''
 })
 
