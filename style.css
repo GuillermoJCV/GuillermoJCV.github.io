@@ -5,7 +5,6 @@
   box-sizing: border-box;
 }
 
-
 /*
   darker #86DB5C
   normal #65DB95
@@ -28,7 +27,7 @@
   --h-btn:        #56bb27;
   --h-btn-txt:    #102a09;
   --txtarea-bg:   #bef4d3;
-  --txtarea-txt:  #175030;
+  --txtarea-txt:  #072c18;
   --encrypt-btn:  #2abd66;
   --encrypt-txt:  #072c18;
   --bg-error-msg: #a2edd8;
@@ -99,7 +98,7 @@
     width: 96%;
     height: 96%;
     font-size: 3rem;
-    background-color: var(--txtarea-bg);
+    background-color: transparent;
     color: var(--txtarea-txt);
     border-radius: 0.5rem;
     font-family: Poppins;
@@ -244,7 +243,7 @@
   .encriptation-article > textarea {
     width: 96%;
     height: 96%;
-    background-color: var(--txtarea-bg);
+    background-color: transparent;
     color: var(--txtarea-txt);
     border-radius: 0.5rem;
     font-family: Poppins;
@@ -325,5 +324,27 @@
       opacity: 1;
       transform: translateX(-20rem);
     }
+  }
+}
+
+.encriptation-article::before {
+}
+
+.encriptation-section {
+  & article:before {
+    content: '';
+    opacity: 0.5;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: -1;
+  }
+  & :first-child::before {
+    background-image: url('https://robohash.org/Lia?set=set4');
+  }
+  & :nth-child(2)::before {
+    background-image: url('https://robohash.org/Zhoio?set=set4');
   }
 }
