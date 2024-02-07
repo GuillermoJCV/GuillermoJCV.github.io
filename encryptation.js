@@ -9,7 +9,8 @@ const checkAluraValidations = (text) => {
   const arrayText = text.split('')
 
   arrayText.forEach((letter) => {
-    if(!(letter.charCodeAt(0) >= 97 && letter.charCodeAt(0) <= 122 || letter.charCodeAt(0) === 32)) {
+    const asciiCode = letter.charCodeAt(0)
+    if(!(asciiCode >= 97 && asciiCode <= 122 || asciiCode === 32 || asciiCode === 10)) {
        errorDialog(errorsSection, "Lowercase and no special characters", "According to Alura specifications, the text must be lowercase")
        throw new Error("Text isn't in lowercase")
     }
