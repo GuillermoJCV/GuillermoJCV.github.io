@@ -3,9 +3,20 @@ const txtUncrypt = document.getElementById('unencrypted')
 const encryptBtn = document.getElementById('encrypt')
 const unencryptBtn = document.getElementById('unencrypt')
 
+const encriptations = {
+  "e" : "enter",
+  "i" : "imes",
+  "a" : "ai",
+  "o" : "ober",
+  "u" : "ufat"
+}
+const keys = Object.keys(encriptations)
+const values = Object.values(encriptations)
+
 let originalText = ''
 
 const checkAluraValidations = (text) => {
+  console.log(text)
   const arrayText = text.split('')
 
   arrayText.forEach((letter) => {
@@ -21,21 +32,38 @@ encryptBtn.addEventListener('click', () => {
   const text = txtUncrypt.value
   originalText = text
 
+  let indexes = []
+
+  const textArray = text.split('')
   checkAluraValidations(text)
 
-  const encryptedText = text.replaceAll('e', 'enter')
-  .replaceAll('i', 'imes')
-  .replaceAll('a', 'ai')
-  .replaceAll('o', 'ober')
-  .replaceAll('u', 'ufat')
+  textArray.forEach((letter, index) => {
+    if(keys.includes(letter)) {
+      indexes.push(index)
+    }
+  })
+
+  indexes.forEach(index => {
+    textArray[index] = encriptations[textArray[index]]
+  })
+
+  const encryptedText = textArray.join('')
 
   txtEncrypt.value = encryptedText
   txtUncrypt.value = ''
+
 })
 
 unencryptBtn.addEventListener('click', () => {
-
-  txtUncrypt.value = originalText
+  const text = txtEncrypt.value
+  checkAluraValidations(text)
+  
+  txtUncrypt.value = text.replaceAll(values[4], keys[4])
+  .replaceAll(values[3], keys[3])
+  .replaceAll(values[2], keys[2])
+  .replaceAll(values[1], keys[1])
+  .replaceAll(values[0], keys[0])
+  
   txtEncrypt.value = ''
 })
 
